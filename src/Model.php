@@ -7,7 +7,7 @@ use PDOException;
 use Dotenv\Dotenv;
 
 class Model {
-    private $pdo;
+    private object $pdo;
 
     public function __construct() {
         $dotenv = Dotenv::createImmutable(__DIR__ . '../../');
@@ -27,10 +27,10 @@ class Model {
         }
     }
 
-    public function query($query) {
+    public function query(string $query, array $parameters = []): array {
         try {
             $stmt = $this->pdo->prepare($query);
-            $stmt->execute();
+            $stmt->execute($parameters);
 
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch(PDOException $e) {

@@ -3,28 +3,42 @@
 namespace App;
 
 class Router {
-    protected $routes = [];
+    protected array $routes = [];
 
-    private function addRoute($route, $controller, $action, $method) {
+    private function addRoute($route, $controller, $action, $method): void {
         $this->routes[$method][$route] = ['controller' => $controller, 'action' => $action];
     }
 
-    public function get($route, $controller, $action) {
+    public function get($route, $controller, $action): void {
         $this->addRoute($route, $controller, $action, "GET");
     }
 
-    public function dispatch() {
+    public function dispatch(): void {
         $uri = strtok($_SERVER['REQUEST_URI'], '?');
         $method = $_SERVER['REQUEST_METHOD'];
 
-        if (array_key_exists($uri, $this->routes[$method])) {
-            $controller = $this->routes[$method][$uri]['controller'];
-            $action = $this->routes[$method][$uri]['action'];
+        foreach ($this->routes[$method] as $route => $routeDetails) {
+            $routePattern = preg_replace('/\:(\w+)/', '(?P<$1>[^/]+)', $route);
+            $regex = "#^$routePattern$#";
 
-            $controller = new $controller();
-            $controller->$action();
-        } else {
-            throw new \Exception("No route found for URI: $uri");
+            if (preg_match($regex, $uri, $matches)) {
+                $controller = $routeDetails['controller'];
+                $action = $routeDetails['action'];
+
+                $params = [];
+                foreach ($matches as $key => $value) {
+                    if (!is_numeric($key)) {
+                        $params[$key] = $value;
+                    }
+                }
+
+                $controllerInstance = new $controller();
+                call_user_func_array([$controllerInstance, $action], $params);
+                
+                return;
+            }
         }
+
+        throw new \Exception("No route found for URI: $uri");
     }
 }
