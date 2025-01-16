@@ -9,4 +9,5 @@
 !/.vscode/lando.env
 
 /vendor/
+/node_modules/
 .env

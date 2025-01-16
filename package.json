@@ -1,0 +1,20 @@
+{
+  "name": "mvc-framework-from-scratch",
+  "version": "1.0.0",
+  "description": "Simple PHP MVC Framework from Scratch",
+  "main": "index.js",
+  "scripts": {
+    "test": "",
+    "build": "webpack"
+  },
+  "author": "Jussi Jokinen",
+  "license": "MIT",
+  "devDependencies": {
+    "css-loader": "^7.1.2",
+    "mini-css-extract-plugin": "^2.9.2",
+    "sass": "^1.83.4",
+    "sass-loader": "^16.0.4",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  }
+}
