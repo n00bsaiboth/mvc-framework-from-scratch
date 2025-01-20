@@ -23,7 +23,8 @@ class Model {
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->pdo->exec("SET NAMES utf8");
         } catch (PDOException $e) {
-            die("Error: Could not connect to the database. " . $e->getMessage());
+            throw new PDOException("Error: Could not connect to the database. " . $e->getMessage());
+            // die("Error: Could not connect to the database. " . $e->getMessage());
         }
     }
 
@@ -34,7 +35,8 @@ class Model {
 
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         } catch(PDOException $e) {
-            die("Error: Database query failed. " . $e->getMessage());
+            throw new PDOException("Error: Database query failed. " . $e->getMessage());
+            // die("Error: Database query failed. " . $e->getMessage());
         }
     }
 }

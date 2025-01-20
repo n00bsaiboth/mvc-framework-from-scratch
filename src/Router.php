@@ -13,6 +13,10 @@ class Router {
         $this->addRoute($route, $controller, $action, "GET");
     }
 
+    public function post($route, $controller, $action): void {
+        $this->addRoute($route, $controller, $action, "POST");
+    }
+
     public function dispatch(): void {
         $uri = strtok($_SERVER['REQUEST_URI'], '?');
         $method = $_SERVER['REQUEST_METHOD'];
