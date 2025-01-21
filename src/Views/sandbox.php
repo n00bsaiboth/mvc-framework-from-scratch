@@ -8,5 +8,16 @@
 <body>
     <h1>Welcome to the sandbox</h1>
     <p></p>
+    <?php 
+        if (isset($email) && !empty($email)) {
+            echo "email: $email .";
+        }
+
+        echo "<br>";
+
+        if (isset($url) && !empty($url)) {
+            echo "url: $url";
+        }
+    ?>
 </body>
 </html>
