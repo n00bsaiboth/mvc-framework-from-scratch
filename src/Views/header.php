@@ -29,6 +29,7 @@
                 </ul>
             </div>
         </div>
+        <div class="divider"></div>
     </div>
 
     <div class="hero">

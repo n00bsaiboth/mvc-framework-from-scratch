@@ -2,26 +2,28 @@
     require_once('header.php');
 ?>
 
-<div class="container mx-auto my-4">
+<div class="container mx-auto my-4 px-2">
     <div class="flex justify-center items-center">
         <div class="prose">
             <h2>Received feedback</h2>
         </div>
     </div>
+    <div class="divider"></div>
 </div>
 
-<div class="container mx-auto my-4">
+<div class="container mx-auto my-4 px-2">
     <?php 
         if (isset($feedbacks) && !empty($feedbacks)) {
             foreach ($feedbacks as $feedback) {
-                echo "<article class=\"flex justify-center items-center\" id=\"feedback-{$feedback["id"]}\">";
-                echo "<div class=\"prose w-full max-w-lg\">";
+                echo "<article class=\"flex justify-center items-center my-2\" id=\"feedback-{$feedback["id"]}\">";
+                echo "<div class=\"prose w-full max-w-md my-2 px-2\">";
                 echo "<h3>Reviewer</h3>";
                 echo "<p>{$feedback["name"]}</p>";
                 echo "<h3>Feedback</h3>";
                 echo "<p>{$feedback["feedback"]}</p>";
                 echo "</div>";
                 echo "</article>";
+                echo "<div class=\"divider\"></div>";
 
             }
         } else {
@@ -35,7 +37,7 @@
     ?>
 </div>
 
-<div class="container mx-auto my-4">
+<div class="container mx-auto my-4 px-2">
     <div class="flex justify-center items-center">
         <div class="prose">
             <h2>Send us a feedback</h2>
@@ -43,7 +45,7 @@
     </div>
 </div>
 
-<div class="container mx-auto my-8">
+<div class="container mx-auto my-8 px-2">
     <div class="flex justify-center items-center">
         <form action="/feedback" method="post" class="form-control w-full max-w-md">
             <label class="label" for="name">Name</label>

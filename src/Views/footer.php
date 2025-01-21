@@ -1,4 +1,6 @@
     <div class="container mx-auto px-2 my-4">
+        <div class="divider"></div>
+        
         <footer class="footer">
             <nav>
                 <h6 class="footer-title">Contact</h6>

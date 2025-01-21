@@ -29,6 +29,7 @@
                 </ul>
             </div>
         </div>
+        <div class="divider"></div>
     </div>
 
     <div class="hero">
@@ -40,8 +41,7 @@
         </div>
     </div>
 
-    <div class="container mx-auto">
-
+    <div class="container mx-auto my-4 px-2">
 
     <?php
             if (isset($single) && !empty($single)) {
@@ -64,10 +64,10 @@
             }
     ?>
 
-
     </div>
 
     <div class="container mx-auto px-2 my-4">
+        <div class="divider"></div>
         <footer class="footer">
             <nav>
                 <h6 class="footer-title">Contact</h6>

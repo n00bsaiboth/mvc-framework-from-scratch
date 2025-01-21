@@ -2,15 +2,16 @@
     require_once(__DIR__ . '/header.php');
 ?>
 
-<div class="container mx-auto my-4">
+<div class="container mx-auto my-4 px-2">
     <div class="flex justify-center items-center">
         <div class="prose w-full max-w-lg">
             <h2>News</h2>
         </div>
     </div>
+    <div class="divider"></div>
 </div>
 
-<div class="container mx-auto my-4">
+<div class="container mx-auto my-4 px-2">
 
 <?php
     if (isset($news) && !empty($news)) {
