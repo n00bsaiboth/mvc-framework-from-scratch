@@ -36,7 +36,7 @@
         <div class="hero-content text-center">
             <div class="prose max-w-md">
                 <h1>MVC Framework from Scratch</h1>
-                <a href="" class="btn btn-primary">Source code</a>
+                <a href="https://github.com/n00bsaiboth/mvc-framework-from-scratch" target="_blank" class="btn btn-primary">Source code</a>
             </div>
         </div>
     </div>
